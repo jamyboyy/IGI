@@ -1,0 +1,7 @@
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+*.log
+_archive_old_aquaflow/
+.claude/
