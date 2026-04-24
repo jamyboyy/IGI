@@ -14,7 +14,7 @@
   const LABEL_MAP = [
     // LEADERSHIP / PORTRAITS
     { match: /chairman/i,
-      img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80&auto=format&fit=crop',
+      img: 'assets/team/chairman.png',
       fallback: 'https://picsum.photos/seed/igi-chairman-portrait-suit/900/1125' },
     { match: /md\s*\/?\s*ceo|\bceo\b/i,
       img: 'assets/team/akinlolu-akinyele.png',
