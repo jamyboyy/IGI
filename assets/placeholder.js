@@ -26,7 +26,7 @@
       img: 'assets/team/emmanuel-ojomah.png',
       fallback: 'https://picsum.photos/seed/igi-secretary-african/900/1125' },
     { match: /executive|director|board member/i,
-      img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80&auto=format&fit=crop',
+      perLabel: true,   // each unique data-ph gets its own image
       fallback: 'https://picsum.photos/seed/igi-director-boardroom/900/1125' },
     { match: /portrait/i,
       img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=900&q=80&auto=format&fit=crop',
@@ -61,7 +61,19 @@
   };
 
   function pick(label){
-    for (const r of LABEL_MAP) if (r.match.test(label)) return r;
+    for (const r of LABEL_MAP) {
+      if (r.match.test(label)) {
+        if (r.perLabel) {
+          // Each unique data-ph label gets a distinct seeded image
+          const seed = 'igi-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          return {
+            img: 'https://picsum.photos/seed/' + encodeURIComponent(seed) + '/900/1125',
+            fallback: r.fallback
+          };
+        }
+        return r;
+      }
+    }
     return DEFAULT;
   }
 

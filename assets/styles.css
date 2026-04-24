@@ -820,6 +820,11 @@ section { position: relative; }
 @media (max-width: 1000px) { .leadership__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px)  { .leadership__grid { grid-template-columns: 1fr; } }
 
+/* Board section variant — 3 cols for clean 3x3 of 9 directors */
+.leadership__grid--board { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1000px) { .leadership__grid--board { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .leadership__grid--board { grid-template-columns: 1fr; } }
+
 /* ---------- TESTIMONIALS ---------- */
 .quotes {
   background: var(--ivory);
