@@ -25,6 +25,31 @@
     { match: /company secretary/i,
       img: 'assets/team/emmanuel-ojomah.png',
       fallback: 'https://picsum.photos/seed/igi-secretary-african/900/1125' },
+
+    // Non-Executive Directors (person-specific, matched before generic Director)
+    { match: /kabir|tukur/i,
+      img: 'assets/team/kabir-ayinde-tukur.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-kabir/900/1125' },
+    { match: /augustine|olorunsola/i,
+      img: 'assets/team/augustine-olorunsola.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-augustine/900/1125' },
+    { match: /kanayo|okoye/i,
+      img: 'assets/team/kanayo-okoye.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-kanayo/900/1125' },
+    { match: /gaffar|animashawun/i,
+      img: 'assets/team/gaffar-animashawun.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-gaffar/900/1125' },
+    { match: /bukky|akomolafe/i,
+      img: 'assets/team/bukky-akomolafe.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-bukky/900/1125' },
+    { match: /sadiq|kaita/i,
+      img: 'assets/team/sadiq-kaita.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-sadiq/900/1125' },
+    { match: /tajudeen|ayeola/i,
+      img: 'assets/team/tajudeen-ayeola.png',
+      fallback: 'https://picsum.photos/seed/igi-ned-tajudeen/900/1125' },
+
+    // Fallback for any other director/executive — gets a seeded stock photo
     { match: /executive|director|board member/i,
       perLabel: true,   // each unique data-ph gets its own image
       fallback: 'https://picsum.photos/seed/igi-director-boardroom/900/1125' },
