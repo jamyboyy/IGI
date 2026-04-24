@@ -17,13 +17,13 @@
       img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80&auto=format&fit=crop',
       fallback: 'https://picsum.photos/seed/igi-chairman-portrait-suit/900/1125' },
     { match: /md\s*\/?\s*ceo|\bceo\b/i,
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&auto=format&fit=crop',
+      img: 'assets/team/akinlolu-akinyele.png',
       fallback: 'https://picsum.photos/seed/igi-ceo-executive-african/900/1125' },
     { match: /cfo/i,
-      img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80&auto=format&fit=crop',
+      img: 'assets/team/ayoola-iyiola.png',
       fallback: 'https://picsum.photos/seed/igi-cfo-finance-executive/900/1125' },
     { match: /company secretary/i,
-      img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=80&auto=format&fit=crop',
+      img: 'assets/team/emmanuel-ojomah.png',
       fallback: 'https://picsum.photos/seed/igi-secretary-african/900/1125' },
     { match: /executive|director|board member/i,
       img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80&auto=format&fit=crop',
@@ -68,12 +68,15 @@
   function hydrate(root){
     (root||document).querySelectorAll('.ph:not([data-ph-done]):not(.ph--image)').forEach(el=>{
       const label   = el.getAttribute('data-ph') || 'image';
-      const variant = el.getAttribute('data-ph-variant') || 'dark';
       const src     = pick(label);
+      // Real local team portraits are on white backgrounds — use the lightest overlay
+      // so the subject stays readable.
+      const isLocalPortrait = src.img.startsWith('assets/');
+      const variant = el.getAttribute('data-ph-variant') || (isLocalPortrait ? 'ivory' : 'dark');
 
       el.setAttribute('data-ph-done','1');
       el.style.position = 'relative';
-      el.style.backgroundColor = '#0A2540';
+      el.style.backgroundColor = isLocalPortrait ? '#F5F2EC' : '#0A2540';
       el.style.overflow = 'hidden';
 
       const img = document.createElement('img');
@@ -82,7 +85,9 @@
       img.loading = 'lazy';
       Object.assign(img.style, {
         position:'absolute', inset:'0', width:'100%', height:'100%',
-        objectFit:'cover', display:'block',
+        objectFit: 'cover',
+        objectPosition: isLocalPortrait ? 'center 15%' : 'center',
+        display:'block',
         filter: 'saturate(0.95) contrast(1.02)',
         opacity: '0',
         transition: 'opacity .6s ease'
